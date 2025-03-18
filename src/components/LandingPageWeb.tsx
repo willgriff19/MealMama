@@ -111,12 +111,13 @@ export default function LandingPageWeb() {
           src="/image-1.png"
         />
 
-        <Button
-          onClick={() => setShowEmailPopup(true)}
-          className="relative px-4 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-base sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100 w-full sm:w-auto text-center"
-        >
-          Start Meal Planning Smarter—Try for Free!
-        </Button>
+        <Link to="/signup">
+          <Button
+            className="relative px-4 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-base sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100 w-full sm:w-auto text-center"
+          >
+            Start Meal Planning Smarter—Try for Free!
+          </Button>
+        </Link>
       </header>
 
       {/* Hero Section */}
@@ -135,12 +136,13 @@ export default function LandingPageWeb() {
           </p>
 
           <div className="flex flex-col items-center md:items-start gap-4 w-full">
-            <Button
-              onClick={() => setShowEmailPopup(true)}
-              className="px-6 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
-            >
-              Try free for 14 days.
-            </Button>
+            <Link to="/signup">
+              <Button
+                className="px-6 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+              >
+                Try free for 14 days.
+              </Button>
+            </Link>
             <p className="font-sans font-normal text-[#00000080] text-sm sm:text-base">
               No credit card required to start.
             </p>
@@ -197,12 +199,13 @@ export default function LandingPageWeb() {
           <p className="w-fit font-sans font-medium text-[#1e212bed] text-lg sm:text-xl md:text-2xl text-center">
             Smarter meal planning is just one click away!
           </p>
-          <Button
-            onClick={() => setShowEmailPopup(true)}
-            className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#fbfcff] hover:bg-[#fbfcff] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_1px_#1e212b80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
-          >
-            Try MealMama for Free!
-          </Button>
+          <Link to="/signup">
+            <Button
+              className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#fbfcff] hover:bg-[#fbfcff] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_1px_#1e212b80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+            >
+              Try MealMama for Free!
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -270,12 +273,13 @@ export default function LandingPageWeb() {
               </div>
             </div>
 
-            <Button
-              onClick={() => setShowEmailPopup(true)}
-              className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#fbfcff] shadow-[0px_3.99px_0px_1px_#ffffff80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
-            >
-              Start free trial today!
-            </Button>
+            <Link to="/signup">
+              <Button
+                className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#fbfcff] shadow-[0px_3.99px_0px_1px_#ffffff80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+              >
+                Start free trial today!
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </section>
