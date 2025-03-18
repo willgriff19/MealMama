@@ -108,11 +108,11 @@ export default function LandingPageWeb() {
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-[56px] px-4 sm:px-8 md:px-[150px] py-8 sm:py-[49.92px] relative w-full border-none">
         <div className="flex flex-col items-center md:items-start justify-center gap-6 relative w-full md:w-auto">
-          <h1 className="w-full font-display font-bold text-[#1e212b] text-4xl sm:text-5xl md:text-[63.9px] text-center md:text-left tracking-[0] leading-tight [text-shadow:0px_2px_1px_#1e212b40] whitespace-nowrap overflow-hidden">
+          <h1 className="w-full font-display font-bold text-[#1e212b] text-3xl sm:text-5xl md:text-[63.9px] text-center md:text-left tracking-[0] leading-tight [text-shadow:0px_2px_1px_#1e212b40] whitespace-nowrap overflow-hidden">
             Smarter Meal Planning.
           </h1>
 
-          <h1 className="w-full font-display font-bold text-[#1e212b] text-4xl sm:text-5xl md:text-[63.9px] text-center md:text-left tracking-[0] leading-tight [text-shadow:0px_2px_1px_#1e212b3d] whitespace-nowrap overflow-hidden">
+          <h1 className="w-full font-display font-bold text-[#1e212b] text-3xl sm:text-5xl md:text-[63.9px] text-center md:text-left tracking-[0] leading-tight [text-shadow:0px_2px_1px_#1e212b3d] whitespace-nowrap overflow-hidden">
             Easier Grocery Shopping.
           </h1>
 
