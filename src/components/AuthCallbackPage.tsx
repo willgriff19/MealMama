@@ -11,6 +11,9 @@ export default function AuthCallbackPage() {
     const handleCallback = async () => {
       try {
         setDebugInfo('Checking initial session...');
+        // Add a small delay to ensure Supabase has time to set up the session
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
         // First try to get the session
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
@@ -24,7 +27,8 @@ export default function AuthCallbackPage() {
         if (session) {
           setDebugInfo('Session found, redirecting to dashboard...');
           console.log('Session:', session);
-          // We have a session, redirect to dashboard
+          // Add a small delay before redirecting
+          await new Promise(resolve => setTimeout(resolve, 500));
           navigate('/dashboard', { replace: true });
         } else {
           setDebugInfo('No session found, checking user...');
@@ -41,10 +45,12 @@ export default function AuthCallbackPage() {
 
           if (user) {
             setDebugInfo('User found, checking final session...');
-            // Check session one more time
+            // Check session one more time after a small delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
             const { data: { session: finalSession } } = await supabase.auth.getSession();
             if (finalSession) {
               setDebugInfo('Final session found, redirecting to dashboard...');
+              await new Promise(resolve => setTimeout(resolve, 500));
               navigate('/dashboard', { replace: true });
             } else {
               setDebugInfo('No final session found');
@@ -68,25 +74,18 @@ export default function AuthCallbackPage() {
     handleCallback();
   }, [navigate]);
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-[#fbfcff] flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-[#1e212b] mb-4">Authentication Error</h2>
-          <p className="text-red-600 mb-4">{error}</p>
-          <p className="text-[#1e212b] mb-4">Debug info: {debugInfo}</p>
-          <p className="text-[#1e212b]">Redirecting you back...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-[#fbfcff] flex items-center justify-center">
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-[#1e212b] mb-4">Completing sign in...</h2>
+      <div className="text-center max-w-md mx-auto px-4">
+        <h2 className="text-2xl font-bold text-[#1e212b] mb-4">
+          {error ? 'Authentication Error' : 'Completing sign in...'}
+        </h2>
+        {error && <p className="text-red-600 mb-4">{error}</p>}
         <p className="text-[#1e212b] mb-4">{debugInfo}</p>
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#06d6a0] mx-auto"></div>
+        {!error && (
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#06d6a0] mx-auto"></div>
+        )}
+        {error && <p className="text-[#1e212b]">Redirecting you back...</p>}
       </div>
     </div>
   );
