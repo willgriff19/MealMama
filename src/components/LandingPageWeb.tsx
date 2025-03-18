@@ -89,7 +89,7 @@ export default function LandingPageWeb() {
   return (
     <div className="flex flex-col items-center relative bg-[#fbfcff] border-none">
       {/* Header */}
-      <header className="flex flex-wrap items-center justify-between gap-[44px] px-4 sm:px-8 md:px-20 py-4 sm:py-8 relative self-stretch w-full flex-[0_0_auto] bg-[#fbfcff] border-none">
+      <header className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 sm:gap-[44px] px-4 sm:px-8 md:px-20 py-4 sm:py-8 relative self-stretch w-full flex-[0_0_auto] bg-[#fbfcff] border-none">
         <img
           className="relative w-[200px] sm:w-[280px] md:w-[333.87px] h-auto object-cover"
           alt="MealMama Logo"
@@ -98,7 +98,7 @@ export default function LandingPageWeb() {
 
         <Button
           onClick={openDialog}
-          className="relative px-4 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-base sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+          className="relative px-4 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-base sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100 w-full sm:w-auto text-center"
         >
           Start Meal Planning Smarter—Try for Free!
         </Button>
