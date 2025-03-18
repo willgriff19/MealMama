@@ -4,6 +4,7 @@ import SignUpPage from './components/SignUpPage'
 import LoginPage from './components/LoginPage'
 import DashboardPage from './components/DashboardPage'
 import AuthCallbackPage from './components/AuthCallbackPage'
+import TestComponent from './playground/TestComponent'
 import { useAuth } from './hooks/useAuth'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -43,6 +44,7 @@ function App() {
           } 
         />
         <Route path="/auth/callback" element={<AuthCallbackPage />} />
+        <Route path="/playground" element={<TestComponent />} />
       </Routes>
     </Router>
   )
