@@ -4,26 +4,20 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
-export default function SignUpPage() {
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const { signUp, signInWithGoogle } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
     try {
-      await signUp(email, password);
+      await signIn(email, password);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create account');
+      setError(err instanceof Error ? err.message : 'Failed to sign in');
     }
   };
 
@@ -46,10 +40,10 @@ export default function SignUpPage() {
         />
       </Link>
 
-      {/* Sign Up Card */}
+      {/* Login Card */}
       <div className="w-full max-w-md bg-[#f8f9fa] rounded-[20px] p-8 border-4 border-[#1e212b] shadow-[0px_8px_0px_#1e212b40]">
         <h1 className="text-3xl font-bold text-[#1e212b] mb-6 text-center">
-          Create your account
+          Welcome back!
         </h1>
 
         {error && (
@@ -85,22 +79,7 @@ export default function SignUpPage() {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
               required
               className="w-full"
-              placeholder="Create a password"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-[#1e212b] mb-2">
-              Confirm Password
-            </label>
-            <Input
-              id="confirmPassword"
-              type="password"
-              value={confirmPassword}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
-              required
-              className="w-full"
-              placeholder="Confirm your password"
+              placeholder="Enter your password"
             />
           </div>
 
@@ -108,7 +87,7 @@ export default function SignUpPage() {
             type="submit"
             className="w-full bg-[#06d6a0] hover:bg-[#06d6a0] text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b40] font-medium text-lg transition-transform duration-200 hover:scale-105"
           >
-            Create Account
+            Sign In
           </Button>
         </form>
 
@@ -133,9 +112,9 @@ export default function SignUpPage() {
         </div>
 
         <p className="mt-8 text-center text-[#1e212b] text-sm">
-          Already have an account?{' '}
-          <Link to="/login" className="text-[#06d6a0] hover:text-[#05c090] font-medium">
-            Sign in here
+          Don't have an account?{' '}
+          <Link to="/signup" className="text-[#06d6a0] hover:text-[#05c090] font-medium">
+            Create one here
           </Link>
         </p>
       </div>
