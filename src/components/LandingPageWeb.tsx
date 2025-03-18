@@ -61,17 +61,17 @@ export default function LandingPageWeb() {
   const howItWorksSteps = [
     {
       number: "1",
-      title: "Tell us about your preferences",
+      title: "Tell us about your diet, goals, and kitchenware",
       image: "/image-4.png",
     },
     {
       number: "2",
-      title: "Receive and edit your meal plan",
+      title: "Receive, edit, and approve your meal plan",
       image: "/image-3.png",
     },
     {
       number: "3",
-      title: "Get a text with your prefilled cart",
+      title: "Approve your prefilled cart for delivery in one click",
       image: "/image-2.png",
     },
   ];
