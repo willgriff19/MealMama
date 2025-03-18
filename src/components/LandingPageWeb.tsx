@@ -312,10 +312,10 @@ export default function LandingPageWeb() {
               </svg>
             </button>
             <h2 className="text-2xl font-bold text-[#1e212b] mb-4">
-              Whoops! MealMama is Still Cooking 👩‍🍳
+              Join the Waitlist
             </h2>
             <p className="text-[#1e212b] mb-6">
-              Our AI chef is perfecting the recipe! Enter your email to be the first to know when we're ready to serve up something amazing.
+              Whoops! MealMama is still cooking. Our AI chef is perfecting the recipe! Enter your email to be the first to know when we're ready to serve up something amazing.
             </p>
             <form onSubmit={handleEmailSubmit}>
               <Input
