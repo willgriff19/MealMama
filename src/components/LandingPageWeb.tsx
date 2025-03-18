@@ -290,12 +290,32 @@ export default function LandingPageWeb() {
       {/* Email Collection Popup */}
       {showEmailPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+          <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 relative">
+            <button
+              onClick={() => setShowEmailPopup(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+              aria-label="Close"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
             <h2 className="text-2xl font-bold text-[#1e212b] mb-4">
-              Join the Waitlist
+              Whoops! MealMama is Still Cooking 👩‍🍳
             </h2>
             <p className="text-[#1e212b] mb-6">
-              Be the first to know when MealMama launches. Enter your email below.
+              Our AI chef is perfecting the recipe! Enter your email to be the first to know when we're ready to serve up something amazing.
             </p>
             <form onSubmit={handleEmailSubmit}>
               <Input
@@ -306,21 +326,12 @@ export default function LandingPageWeb() {
                 className="mb-4"
                 required
               />
-              <div className="flex gap-4">
-                <Button
-                  type="submit"
-                  className="flex-1 bg-[#06d6a0] text-white hover:bg-[#05c090]"
-                >
-                  Join Waitlist
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() => setShowEmailPopup(false)}
-                  className="flex-1 bg-gray-200 text-gray-800 hover:bg-gray-300"
-                >
-                  Cancel
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                className="w-full bg-[#06d6a0] text-white hover:bg-[#05c090]"
+              >
+                Join the Waitlist
+              </Button>
             </form>
           </div>
         </div>
