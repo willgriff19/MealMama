@@ -156,7 +156,7 @@ export default function LandingPageWeb() {
               <CardContent className="flex items-center justify-center gap-4 sm:gap-[27px] p-0 border-none w-full">
                 {feature.position === "right" ? (
                   <>
-                    <div className="flex-1 font-sans text-[#fbfcff] text-base sm:text-lg md:text-xl lg:text-[24px] text-center leading-tight">
+                    <div className="flex-1 font-sans text-[#fbfcff] text-base sm:text-lg md:text-xl lg:text-[24px] text-left sm:text-center leading-tight">
                       {feature.text}
                     </div>
                     <div className="flex-shrink-0 w-[40px] sm:w-[50px] md:w-auto">
@@ -168,7 +168,7 @@ export default function LandingPageWeb() {
                     <div className="flex-shrink-0 w-[40px] sm:w-[50px] md:w-auto">
                       {feature.icon}
                     </div>
-                    <div className="flex-1 font-sans text-[#fbfcff] text-base sm:text-lg md:text-xl lg:text-[24px] text-center leading-tight">
+                    <div className="flex-1 font-sans text-[#fbfcff] text-base sm:text-lg md:text-xl lg:text-[24px] text-left sm:text-center leading-tight">
                       {feature.text}
                     </div>
                   </>
@@ -218,10 +218,10 @@ export default function LandingPageWeb() {
               </div>
 
               {index === 2 ? (
-                <div className="relative w-full max-w-[280px] sm:max-w-[280.59px] h-[400px] sm:h-[561.49px] rounded-[31px] bg-[url(/image-2.png)] bg-cover bg-[50%_50%] transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer" />
+                <div className="relative w-full max-w-[280px] sm:max-w-[280.59px] h-[400px] sm:h-[561.49px] rounded-[31px] bg-[url(/image-2.png)] bg-cover bg-[50%_50%] bg-no-repeat transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer" />
               ) : (
                 <img
-                  className="relative w-full max-w-[280px] sm:max-w-[279.04px] h-[400px] sm:h-[570.48px] object-cover rounded-[31px] transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer"
+                  className="relative w-full max-w-[280px] sm:max-w-[279.04px] h-[400px] sm:h-[570.48px] object-contain sm:object-cover rounded-[31px] transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer"
                   alt={`Step ${step.number}`}
                   src={step.image}
                 />
