@@ -2,12 +2,26 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import React, { useState } from "react";
 import EmailCollectionDialog from "./EmailCollectionDialog";
+import { Link } from 'react-router-dom';
+import { Input } from './ui/input';
 
 export default function LandingPageWeb() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [showEmailPopup, setShowEmailPopup] = useState(false);
+  const [email, setEmail] = useState('');
 
   const openDialog = () => {
     setIsDialogOpen(true);
+  };
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the email to your backend
+    console.log('Email submitted:', email);
+    // For now, just close the popup and show a thank you message
+    alert('Thank you for your interest! We\'ll notify you when we launch.');
+    setShowEmailPopup(false);
+    setEmail('');
   };
 
   // Feature cards data
@@ -97,13 +111,12 @@ export default function LandingPageWeb() {
           src="/image-1.png"
         />
 
-        <a href="/signup">
-          <Button
-            className="relative px-4 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-base sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100 w-full sm:w-auto text-center"
-          >
-            Start Meal Planning Smarter—Try for Free!
-          </Button>
-        </a>
+        <Button
+          onClick={() => setShowEmailPopup(true)}
+          className="relative px-4 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-base sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100 w-full sm:w-auto text-center"
+        >
+          Start Meal Planning Smarter—Try for Free!
+        </Button>
       </header>
 
       {/* Hero Section */}
@@ -122,13 +135,12 @@ export default function LandingPageWeb() {
           </p>
 
           <div className="flex flex-col items-center md:items-start gap-4 w-full">
-            <a href="/signup">
-              <Button
-                className="px-6 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
-              >
-                Try free for 14 days.
-              </Button>
-            </a>
+            <Button
+              onClick={() => setShowEmailPopup(true)}
+              className="px-6 sm:px-[29.95px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-2 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+            >
+              Try free for 14 days.
+            </Button>
             <p className="font-sans font-normal text-[#00000080] text-sm sm:text-base">
               No credit card required to start.
             </p>
@@ -185,13 +197,12 @@ export default function LandingPageWeb() {
           <p className="w-fit font-sans font-medium text-[#1e212bed] text-lg sm:text-xl md:text-2xl text-center">
             Smarter meal planning is just one click away!
           </p>
-          <a href="/signup">
-            <Button
-              className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#fbfcff] hover:bg-[#fbfcff] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_1px_#1e212b80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
-            >
-              Try MealMama for Free!
-            </Button>
-          </a>
+          <Button
+            onClick={() => setShowEmailPopup(true)}
+            className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#fbfcff] hover:bg-[#fbfcff] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#1e212b] shadow-[0px_3.99px_0px_1px_#1e212b80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+          >
+            Try MealMama for Free!
+          </Button>
         </div>
       </section>
 
@@ -259,13 +270,12 @@ export default function LandingPageWeb() {
               </div>
             </div>
 
-            <a href="/signup">
-              <Button
-                className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#fbfcff] shadow-[0px_3.99px_0px_1px_#ffffff80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
-              >
-                Start free trial today!
-              </Button>
-            </a>
+            <Button
+              onClick={() => setShowEmailPopup(true)}
+              className="px-6 sm:px-[50px] py-2 sm:py-[9.98px] bg-[#06d6a0] hover:bg-[#06d6a0] rounded-[4.99px] overflow-hidden border-4 border-solid border-[#fbfcff] shadow-[0px_3.99px_0px_1px_#ffffff80] font-medium text-[#1e212b] text-lg sm:text-xl md:text-2xl transition-transform duration-200 hover:scale-105 active:scale-100"
+            >
+              Start free trial today!
+            </Button>
           </CardContent>
         </Card>
       </section>
@@ -277,10 +287,44 @@ export default function LandingPageWeb() {
         </p>
       </footer>
 
-      <EmailCollectionDialog
-        isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-      />
+      {/* Email Collection Popup */}
+      {showEmailPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+            <h2 className="text-2xl font-bold text-[#1e212b] mb-4">
+              Join the Waitlist
+            </h2>
+            <p className="text-[#1e212b] mb-6">
+              Be the first to know when MealMama launches. Enter your email below.
+            </p>
+            <form onSubmit={handleEmailSubmit}>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mb-4"
+                required
+              />
+              <div className="flex gap-4">
+                <Button
+                  type="submit"
+                  className="flex-1 bg-[#06d6a0] text-white hover:bg-[#05c090]"
+                >
+                  Join Waitlist
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() => setShowEmailPopup(false)}
+                  className="flex-1 bg-gray-200 text-gray-800 hover:bg-gray-300"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 } 
