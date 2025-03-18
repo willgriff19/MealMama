@@ -32,7 +32,7 @@ export function useAuth() {
         email,
         password,
         options: {
-          emailRedirectTo: 'https://meal-mama-kdv8efv87-will-griffioens-projects.vercel.app/auth/callback'
+          emailRedirectTo: 'https://mealmama.vercel.app/auth/callback'
         }
       });
       if (error) throw error;
@@ -74,7 +74,7 @@ export function useAuth() {
             access_type: 'offline',
             prompt: 'consent'
           },
-          redirectTo: 'https://meal-mama-kdv8efv87-will-griffioens-projects.vercel.app/auth/callback'
+          redirectTo: 'https://mealmama.vercel.app/auth/callback'
         }
       });
       if (error) throw error;
