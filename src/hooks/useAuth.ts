@@ -73,7 +73,8 @@ export function useAuth() {
           queryParams: {
             access_type: 'offline',
             prompt: 'consent'
-          }
+          },
+          redirectTo: `${window.location.origin}/dashboard`
         }
       });
       if (error) throw error;
