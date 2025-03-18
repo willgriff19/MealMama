@@ -315,7 +315,7 @@ export default function LandingPageWeb() {
               Join the Waitlist
             </h2>
             <p className="text-[#1e212b] mb-6">
-              Whoops! MealMama is still cooking. Our AI chef is perfecting the recipe! Enter your email to be the first to know when we're ready to serve up something amazing.
+              Whoops! MealMama is still cooking. Enter your email to be notified when we launch!
             </p>
             <form onSubmit={handleEmailSubmit}>
               <Input
