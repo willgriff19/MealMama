@@ -106,7 +106,7 @@ export default function SignUpPage() {
 
           <Button
             type="submit"
-            className="w-full bg-[#06d6a0] hover:bg-[#06d6a0] text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium text-lg transition-transform duration-200 hover:scale-105"
+            className="w-full bg-[#06d6a0] hover:bg-[#06d6a0] text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b40] font-medium text-lg transition-transform duration-200 hover:scale-105"
           >
             Create Account
           </Button>
@@ -124,7 +124,7 @@ export default function SignUpPage() {
 
           <Button
             type="button"
-            className="mt-6 w-full bg-white text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium transition-transform duration-200 hover:scale-105"
+            className="mt-6 w-full bg-white text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b40] font-medium transition-transform duration-200 hover:scale-105"
             onClick={handleGoogleSignIn}
           >
             <img src="/google.svg" alt="Google" className="w-5 h-5 mr-2" />
