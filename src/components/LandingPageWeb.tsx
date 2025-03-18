@@ -46,7 +46,7 @@ export default function LandingPageWeb() {
       position: "left",
     },
     {
-      icon: <img src="/Delivery icon.png" alt="Delivery" className="w-[79.2px] h-[64.56px]" />,
+      icon: <img src="/Delivery icon.png" alt="Delivery" className="w-[60px] h-[60px] sm:w-[79.2px] sm:h-[64.56px] object-contain" />,
       text: (
         <>
           <span className="font-extralight">Deliver your groceries </span>
@@ -217,15 +217,11 @@ export default function LandingPageWeb() {
                 </div>
               </div>
 
-              {index === 2 ? (
-                <div className="relative w-full max-w-[280px] sm:max-w-[280.59px] h-[400px] sm:h-[561.49px] rounded-[31px] bg-[url(/image-2.png)] bg-cover bg-[50%_50%] bg-no-repeat transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer" />
-              ) : (
-                <img
-                  className="relative w-full max-w-[280px] sm:max-w-[279.04px] h-[400px] sm:h-[570.48px] object-contain sm:object-cover rounded-[31px] transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer"
-                  alt={`Step ${step.number}`}
-                  src={step.image}
-                />
-              )}
+              <img
+                className="relative w-full max-w-[280px] sm:max-w-[279.04px] h-[400px] sm:h-[570.48px] object-contain sm:object-cover rounded-[31px] transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.2)] cursor-pointer"
+                alt={`Step ${step.number}`}
+                src={step.image}
+              />
             </div>
           ))}
         </div>
