@@ -84,6 +84,7 @@ export default function LandingPageWeb() {
     "Text reminders and calendar sync",
     "Built-in budget optimization",
     "Access to new features as they launch",
+    "Add and save your favorite meals",
   ];
 
   return (
