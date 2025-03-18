@@ -211,7 +211,7 @@ export default function LandingPageWeb() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center min-h-[40px] px-4 sm:px-6 py-2 relative w-full max-w-[280px] bg-[#06d6a0] rounded-[19px] overflow-hidden border-2 border-solid border-black">
+              <div className="flex items-center justify-center min-h-[40px] px-4 sm:px-6 py-2 relative w-full max-w-[280px] bg-[#06d6a0] rounded-[19px] overflow-hidden shadow-[0px_4px_0px_3px_#00000040] border-none transition-all duration-200 hover:scale-105 hover:shadow-[0px_8px_16px_rgba(0,0,0,0.3)]">
                 <div className="font-sans font-bold text-[#1e212b] text-base sm:text-lg md:text-[19.8px] text-center">
                   {step.title}
                 </div>
