@@ -1,37 +1,66 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 export default function AuthCallbackPage() {
   const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if we have a session
-    const checkSession = async () => {
+    const handleCallback = async () => {
       try {
-        const { data: { session }, error } = await supabase.auth.getSession();
+        // First try to get the session
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
-        if (error) {
-          console.error('Auth callback error:', error);
-          navigate('/signup');
+        if (sessionError) {
+          console.error('Session error:', sessionError);
+          setError('Failed to get session');
           return;
         }
 
         if (session) {
-          // If we have a session, redirect to dashboard
+          // We have a session, redirect to dashboard
           navigate('/dashboard', { replace: true });
         } else {
-          // If no session, redirect to signup
-          navigate('/signup', { replace: true });
+          // No session yet, try to exchange the OAuth code
+          const { error: authError } = await supabase.auth.getUser();
+          if (authError) {
+            console.error('Auth error:', authError);
+            setError('Authentication failed');
+            setTimeout(() => navigate('/signup', { replace: true }), 2000);
+            return;
+          }
+          
+          // Check session one more time
+          const { data: { session: finalSession } } = await supabase.auth.getSession();
+          if (finalSession) {
+            navigate('/dashboard', { replace: true });
+          } else {
+            setError('No session found');
+            setTimeout(() => navigate('/signup', { replace: true }), 2000);
+          }
         }
       } catch (err) {
-        console.error('Auth callback error:', err);
-        navigate('/signup', { replace: true });
+        console.error('Callback error:', err);
+        setError('An unexpected error occurred');
+        setTimeout(() => navigate('/signup', { replace: true }), 2000);
       }
     };
 
-    checkSession();
+    handleCallback();
   }, [navigate]);
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#fbfcff] flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-[#1e212b] mb-4">Authentication Error</h2>
+          <p className="text-red-600 mb-4">{error}</p>
+          <p className="text-[#1e212b]">Redirecting you back...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#fbfcff] flex items-center justify-center">
