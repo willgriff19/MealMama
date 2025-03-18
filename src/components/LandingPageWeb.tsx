@@ -117,7 +117,7 @@ export default function LandingPageWeb() {
           </h1>
 
           <p className="w-full font-sans font-normal text-[#000000b2] text-lg sm:text-xl md:text-2xl text-center md:text-left tracking-[0] leading-normal">
-            The only AI meal planner that orders your groceries for you.
+            The only AI meal planner that automates your grocery shopping.
           </p>
 
           <div className="flex flex-col items-center md:items-start gap-4 w-full">
