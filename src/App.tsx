@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LandingPageWeb from './components/LandingPageWeb'
 import SignUpPage from './components/SignUpPage'
+import LoginPage from './components/LoginPage'
 import DashboardPage from './components/DashboardPage'
 import AuthCallbackPage from './components/AuthCallbackPage'
 import { useAuth } from './hooks/useAuth'
@@ -32,6 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPageWeb />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route 
           path="/dashboard" 
           element={
