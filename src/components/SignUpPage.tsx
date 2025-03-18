@@ -26,7 +26,7 @@ export default function SignUpPage() {
       </Link>
 
       {/* Sign Up Card */}
-      <div className="w-full max-w-md bg-white rounded-[20px] shadow-lg p-8 border-2 border-[#1e212b]">
+      <div className="w-full max-w-md bg-white rounded-[20px] p-8 border-2 border-[#1e212b] shadow-[0px_8px_0px_#00000040]">
         <h1 className="text-3xl font-bold text-[#1e212b] mb-6 text-center">
           Create your account
         </h1>
