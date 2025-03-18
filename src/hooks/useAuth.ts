@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
-import { 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signInWithPopup,
-  signOut as firebaseSignOut,
-  onAuthStateChanged,
-  User
-} from 'firebase/auth';
-import { auth, googleProvider } from '../lib/firebase';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
+import { User } from '@supabase/supabase-js';
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -17,20 +10,33 @@ export function useAuth() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const signUp = async (email: string, password: string) => {
     try {
       setError(null);
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/dashboard');
-      return userCredential.user;
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+      if (error) throw error;
+      if (data.user) {
+        navigate('/dashboard');
+        return data.user;
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred during sign up');
       throw err;
@@ -40,9 +46,15 @@ export function useAuth() {
   const signIn = async (email: string, password: string) => {
     try {
       setError(null);
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      navigate('/dashboard');
-      return userCredential.user;
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) throw error;
+      if (data.user) {
+        navigate('/dashboard');
+        return data.user;
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred during sign in');
       throw err;
@@ -52,9 +64,13 @@ export function useAuth() {
   const signInWithGoogle = async () => {
     try {
       setError(null);
-      const result = await signInWithPopup(auth, googleProvider);
-      navigate('/dashboard');
-      return result.user;
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/dashboard`
+        }
+      });
+      if (error) throw error;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred during Google sign in');
       throw err;
@@ -63,7 +79,8 @@ export function useAuth() {
 
   const signOut = async () => {
     try {
-      await firebaseSignOut(auth);
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
       navigate('/');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred during sign out');
