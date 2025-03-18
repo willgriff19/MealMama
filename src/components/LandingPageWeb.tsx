@@ -71,7 +71,7 @@ export default function LandingPageWeb() {
     },
     {
       number: "3",
-      title: "Approve your prefilled cart for delivery in one click",
+      title: "One-click cart approval for delivery",
       image: "/image-2.png",
     },
   ];
