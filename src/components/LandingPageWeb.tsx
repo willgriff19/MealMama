@@ -231,7 +231,7 @@ export default function LandingPageWeb() {
       {/* Pricing Section */}
       <section className="flex flex-col min-h-[700px] items-center justify-center gap-8 sm:gap-12 py-12 sm:py-20 relative w-full bg-[#06d6a0] border-none px-4 sm:px-8">
         <h2 className="relative font-display font-bold text-[#fbfcff] text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-center tracking-[0] leading-normal [text-shadow:0px_3px_7.7px_#1e212b]">
-          Pricing
+          Pricing [DEV TEST]
         </h2>
 
         <Card className="flex flex-col items-center justify-center pt-8 sm:pt-10 pb-10 px-6 sm:px-8 md:px-[30px] bg-[#1e212b] rounded-[90px] overflow-hidden shadow-[0px_8px_0px_#00000040] border-none w-full max-w-[600px]">
