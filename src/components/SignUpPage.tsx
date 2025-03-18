@@ -36,7 +36,7 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fbfcff] flex flex-col items-center justify-between p-4 sm:p-8">
+    <div className="min-h-screen bg-[#06d6a0] flex flex-col items-center justify-between p-4 sm:p-8">
       {/* Header with Logo */}
       <Link to="/" className="w-full max-w-[333.87px] mb-8">
         <img
@@ -47,7 +47,7 @@ export default function SignUpPage() {
       </Link>
 
       {/* Sign Up Card */}
-      <div className="w-full max-w-md bg-[#f8f9fa] rounded-[20px] p-8 border-4 border-[#1e212b] shadow-[0px_8px_0px_#00000040]">
+      <div className="w-full max-w-md bg-[#f8f9fa] rounded-[20px] p-8 border-4 border-[#1e212b] shadow-[0px_8px_0px_#1e212b40]">
         <h1 className="text-3xl font-bold text-[#1e212b] mb-6 text-center">
           Create your account
         </h1>
@@ -124,7 +124,7 @@ export default function SignUpPage() {
 
           <Button
             type="button"
-            className="mt-6 w-full bg-white text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b40] font-medium transition-transform duration-200 hover:scale-105"
+            className="mt-6 w-full bg-white hover:bg-white text-[#1e212b] border-4 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b40] font-medium transition-transform duration-200 hover:scale-105 flex items-center justify-center"
             onClick={handleGoogleSignIn}
           >
             <img src="/google.svg" alt="Google" className="w-5 h-5 mr-2" />
