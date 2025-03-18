@@ -2,16 +2,37 @@ import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const { signUp, signInWithGoogle } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", { email, password, confirmPassword });
+    setError(null);
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    try {
+      await signUp(email, password);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to create account');
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to sign in with Google');
+    }
   };
 
   return (
@@ -30,6 +51,12 @@ export default function SignUpPage() {
         <h1 className="text-3xl font-bold text-[#1e212b] mb-6 text-center">
           Create your account
         </h1>
+
+        {error && (
+          <div className="mb-6 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -98,10 +125,7 @@ export default function SignUpPage() {
           <Button
             type="button"
             className="mt-6 w-full bg-white text-[#1e212b] border-2 border-[#1e212b] shadow-[0px_3.99px_0px_#1e212b] font-medium"
-            onClick={() => {
-              // Handle Google Auth
-              console.log("Google Auth clicked");
-            }}
+            onClick={handleGoogleSignIn}
           >
             <img src="/google.svg" alt="Google" className="w-5 h-5 mr-2" />
             Google
